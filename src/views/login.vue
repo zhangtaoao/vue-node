@@ -187,6 +187,10 @@ export default {
     margin: 260px auto;
     padding: 10px;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    svg {
+      margin: 5px 20px 0;
+      border: 1px solid ghostwhite;
+    }
   }
 }
 </style>

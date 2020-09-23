@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require("body-parser");
 var multer = require('multer')
+var routers = require('./routes/router')
 
 var cors = require('cors');
 
@@ -30,25 +31,8 @@ app.use(cors({
   allowedHeaders: ['Conten-Type', 'Authorization']
 }))
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var loginRouter = require('./routes/login');
-var insertRouter = require('./routes/insert');
-var updateRouter = require('./routes/update');
-var uploadRouter = require('./utils/upload');
-var getFileRouter = require('./routes/download');
-var deleteFileRouter = require('./routes/deleteFile');
-var genVerifyCodeRouter = require('./routes/genVerifyCode');
+routers(app);
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/login', loginRouter);
-app.use('/insert', insertRouter);
-app.use('/update', updateRouter);
-app.use('/upload', uploadRouter);
-app.use('/getFile', getFileRouter);
-app.use('/deleteFile', deleteFileRouter);
-app.use('/genVerifyCode', genVerifyCodeRouter);
 // app.use('/', function (req, res) {
 //   let indexUrl = req.baseUrl ? (req.baseUrl + '/login') : '/login';
 //   res.redirect(indexUrl);
